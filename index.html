@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>Guia de Transformação Emocional</title>
+	<!-- Google Fonts para tipografia elegante -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+	<!-- Swiper CSS para o carrossel -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+	<!-- CSS Customizado -->
+	<style>
+		/* RESET E ESTILOS GLOBAIS */
+		* {
+		  margin: 0;
+		  padding: 0;
+		  box-sizing: border-box;
+		}
+		
+		body {
+		  font-family: "Open Sans", sans-serif;
+		  background-color: #e0f7fa;
+		  color: #333;
+		  overflow-x: hidden;
+		}
+		
+		a {
+		  text-decoration: none;
+		  color: inherit;
+		}
+		
+		p,
+		ul {
+		  margin-bottom: 1rem;
+		}
+		
+		ul {
+		  list-style: none;
+		}
+		
+		/* VARIÁVEIS DE COR */
+		:root {
+		  --primary-color: #008cba; /* Azul turquesa */
+		  --secondary-color: #00bfa6; /* Verde-água */
+		  --light-color: #ffffff;
+		  --background-color: #e0f7fa;
+		}
+		
+		/* CABEÇALHO – SEM SOBREPOR O TÍTULO E SUBTÍTULO */
+		header {
+		  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+		  padding: 3rem 1rem;
+		  text-align: center;
+		  color: var(--light-color);
+		}
+		
+		header h1 {
+		  font-size: 2.4rem;
+		  font-weight: 600;
+		  margin-bottom: 0.8rem;
+		}
+		
+		/* Subtítulo com 8 palavras */
+		header p {
+		  font-size: 1.2rem;
+		  max-width: 700px;
+		  margin: 0 auto;
+		}
+		
+		/* PARÁGRAFO INTRODUTÓRIO (COPYWRITING) */
+		#intro-seo {
+		  max-width: 900px;
+		  margin: 2rem auto 1.5rem auto;
+		  padding: 0 1rem;
+		  text-align: center;
+		  font-size: 1rem;
+		  color: #444;
+		}
+		
+		/* CARROSSEL DE CARDS */
+		main {
+		  padding: 2rem 0;
+		}
+		
+		.swiper-container {
+		  width: 100%;
+		  padding-bottom: 3rem;
+		}
+		
+		.swiper-slide {
+		  background: var(--light-color);
+		  border-radius: 8px;
+		  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		  width: 280px;
+		  height: 360px;
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  justify-content: center;
+		  cursor: pointer;
+		  transition: transform 0.3s ease;
+		  border: 2px solid transparent;
+		}
+		
+		.swiper-slide:hover {
+		  transform: scale(1.03);
+		  border-color: var(--primary-color);
+		}
+		
+		.card-icon {
+		  margin-bottom: 1rem;
+		}
+		
+		.card-icon svg {
+		  width: 40px;
+		  height: 40px;
+		  fill: var(--primary-color);
+		}
+		
+		.card-content {
+		  text-align: center;
+		  padding: 0 1rem;
+		}
+		
+		/* Título em azul e SEO com 10 palavras (gatilho + CTA) */
+		.card-content h3 {
+		  font-size: 1.1rem;
+		  color: var(--primary-color);
+		  margin-bottom: 0.5rem;
+		}
+		
+		.card-content p {
+		  font-size: 0.85rem;
+		  color: #555;
+		  line-height: 1.3;
+		}
+		
+		/* CONTROLES DO SWIPER */
+		.swiper-button-next,
+		.swiper-button-prev {
+		  color: var(--primary-color);
+		}
+		
+		.swiper-pagination-bullet-active {
+		  background: var(--primary-color);
+		}
+		
+		/* MODAL */
+		.modal {
+		  display: none;
+		  position: fixed;
+		  z-index: 2000;
+		  left: 0;
+		  top: 0;
+		  width: 100%;
+		  height: 100%;
+		  overflow-y: auto;
+		  background-color: rgba(0, 0, 0, 0.6);
+		}
+		
+		.modal-content {
+		  background: var(--light-color);
+		  margin: 5% auto;
+		  padding: 1.5rem;
+		  border-radius: 8px;
+		  width: 90%;
+		  max-width: 800px;
+		  position: relative;
+		}
+		
+		.modal-close {
+		  position: absolute;
+		  top: 0.5rem;
+		  right: 0.8rem;
+		  font-size: 2rem;
+		  font-weight: bold;
+		  color: #aaa;
+		  cursor: pointer;
+		}
+		
+		.modal-close:hover {
+		  color: #000;
+		}
+		
+		.modal-content article {
+		  max-height: 70vh;
+		  overflow-y: auto;
+		  padding-right: 1rem;
+		}
+		
+		/* SEÇÃO DE CONTATO */
+		#contact {
+		  background: var(--light-color);
+		  max-width: 800px;
+		  margin: 2rem auto;
+		  padding: 1.5rem;
+		  border-radius: 8px;
+		  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		  text-align: center;
+		}
+		
+		#contact h2 {
+		  font-size: 1.4rem;
+		  color: var(--primary-color);
+		  margin-bottom: 1rem;
+		}
+		
+		#contactForm {
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		}
+		
+		#contactForm textarea {
+		  resize: vertical;
+		  min-height: 100px;
+		  padding: 0.8rem;
+		  font-size: 1rem;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  margin-bottom: 1rem;
+		  width: 100%;
+		}
+		
+		#contactForm button {
+		  background: var(--primary-color);
+		  color: var(--light-color);
+		  border: none;
+		  padding: 0.75rem 1.2rem;
+		  font-size: 1rem;
+		  border-radius: 4px;
+		  cursor: pointer;
+		  font-weight: 600;
+		  transition: background 0.3s ease;
+		}
+		
+		#contactForm button:hover {
+		  background: #006c9e;
+		}
+		
+		/* BOTÃO FLOUTANTE DE WHATSAPP */
+		#whatsappFloat {
+		  position: fixed;
+		  bottom: 20px;
+		  right: 20px;
+		  width: 50px;
+		  height: 50px;
+		  background-color: #25d366;
+		  border-radius: 50%;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  cursor: pointer;
+		  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+		  z-index: 3000;
+		}
+		
+		#whatsappFloat svg {
+		  fill: #fff;
+		  width: 28px;
+		  height: 28px;
+		}
+		
+		/* RODAPÉ */
+		footer {
+		  background: #333;
+		  color: var(--light-color);
+		  text-align: center;
+		  padding: 1rem;
+		  font-size: 0.9rem;
+		}
+		
+		.footer-line {
+		  margin: 0.3rem 0;
+		}
+		
+		/* RESPONSIVIDADE */
+		@media (max-width: 768px) {
+		  header {
+		    padding: 2rem 1rem;
+		  }
+		
+		  header h1 {
+		    font-size: 2rem;
+		  }
+		
+		  .swiper-slide {
+		    width: 220px;
+		    height: 320px;
+		  }
+		}
+	</style>
+</head>
+
+<body>
+	<!-- HEADER -->
+	<header>
+		<h1>Guia de Transformação Emocional</h1>
+		<p>Encontre suporte prático para aliviar cobranças e sofrimentos internos.</p>
+	</header>
+	<!-- PARÁGRAFO INTRODUTÓRIO (COPYWRITING) -->
+	<div id="intro-seo">
+		<p> Você se cobra demais e sente que a pressão interna nunca dá trégua? Este material foi criado para mostrar que é possível encontrar tranquilidade mesmo em meio ao caos. Descubra práticas baseadas em ciência e empatia, desenvolvidas para aliviar a autocrítica e promover equilíbrio. </p>
+	</div>
+	<!-- CARROSSEL DE CARDS (10 cards) -->
+	<main>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<!-- Card: Introdução -->
+				<div class="swiper-slide card" data-chapter="intro">
+					<div class="card-icon">
+						<!-- Ícone para Introdução -->
+						<svg viewBox="0 0 24 24">
+							<path d="M4 4h16v16H4z" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M8 4v16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>✨ Introdução</h3>
+						<p>🌱 Desperte para o acolhimento: descubra seu caminho para o cuidado.</p>
+					</div>
+				</div>
+				<!-- Card: Como Usar Este Guia -->
+				<div class="swiper-slide card" data-chapter="como">
+					<div class="card-icon">
+						<!-- Ícone para Guia de Uso -->
+						<svg viewBox="0 0 24 24">
+							<path d="M3 12h18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M3 6h18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M3 18h18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>🧭 Como Usar Este Guia</h3>
+						<p>🧩 Aprenda a explorar cada prática: siga a sua intuição com calma.</p>
+					</div>
+				</div>
+				<!-- Card 1: Três Sistemas Emocionais -->
+				<div class="swiper-slide card" data-chapter="c1">
+					<div class="card-icon">
+						<!-- Ícone 1 -->
+						<svg viewBox="0 0 24 24">
+							<path d="M8 2a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h0a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M16 2a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4h0a4 4 0 0 1-4-4V6a4 4 0 0 1 4-4z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>🧠 Capítulo 1 – Os Três Sistemas Emocionais</h3>
+						<p>⚖️ Transforme sua resposta emocional equilibrando ameaça, recursos e acolhimento interno.</p>
+					</div>
+				</div>
+				<!-- Card 2 -->
+				<div class="swiper-slide card" data-chapter="c2">
+					<div class="card-icon">
+						<!-- Ícone 2 -->
+						<svg viewBox="0 0 24 24">
+							<path d="M4 12h16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M4 8h12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M4 16h8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>🌬️ Capítulo 2 – Respirando com Gentileza</h3>
+						<p>💨 Domine sua respiração, reduza ansiedades e conquiste equilíbrio duradouro.</p>
+					</div>
+				</div>
+				<!-- Card 3 -->
+				<div class="swiper-slide card" data-chapter="c3">
+					<div class="card-icon">
+						<!-- Ícone 3 -->
+						<svg viewBox="0 0 24 24">
+							<path d="M12 20h9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>✍️ Capítulo 3 – Escrita Sem Punição</h3>
+						<p>📝 Escreva para curar, rompa barreiras e liberte-se do peso interno agora.</p>
+					</div>
+				</div>
+				<!-- Card 4 -->
+				<div class="swiper-slide card" data-chapter="c4">
+					<div class="card-icon">
+						<!-- Ícone 4 -->
+						<svg viewBox="0 0 24 24">
+							<path d="M12 21l-1-1C5 15 2 12 2 8a6 6 0 0 1 12 0 6 6 0 0 1 12 0c0 4-3 7-9 12l-1 1z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>🪞 Capítulo 4 – O Olhar do Amigo</h3>
+						<p>🤝 Redirecione empatia a si mesmo, cure feridas e sinta apoio profundo.</p>
+					</div>
+				</div>
+				<!-- Card 5 -->
+				<div class="swiper-slide card" data-chapter="c5">
+					<div class="card-icon">
+						<!-- Ícone 5 -->
+						<svg viewBox="0 0 24 24">
+							<path d="M9 18h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M10 2a6 6 0 0 0-6 6c0 3 2 5 4 6v3h4v-3c2-1 4-3 4-6a6 6 0 0 0-6-6z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>💭 Capítulo 5 – Nem Todo Pensamento é Verdade</h3>
+						<p>🔎 Reformule crenças limitantes hoje, desenvolva clareza e reescreva sua realidade.</p>
+					</div>
+				</div>
+				<!-- Card 6 -->
+				<div class="swiper-slide card" data-chapter="c6">
+					<div class="card-icon">
+						<!-- Ícone 6 -->
+						<svg viewBox="0 0 24 24">
+							<path d="M12 9v4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M12 17h.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M10.29 3.86l-7.39 12.8A2 2 0 0 0 4 20h16a2 2 0 0 0 1.99-3.34l-7.39-12.8a2 2 0 0 0-3.42 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>🚨 Capítulo 6 – Roteiro de Emergência</h3>
+						<p>⚠️ Descubra soluções rápidas para crises, recupere serenidade e preserve sua força.</p>
+					</div>
+				</div>
+				<!-- Card 7 -->
+				<div class="swiper-slide card" data-chapter="c7">
+					<div class="card-icon">
+						<!-- Ícone 7 -->
+						<svg viewBox="0 0 24 24">
+							<path d="M4 4v6h6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M20 20v-6h-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M5 19a9 9 0 0 1 14-8M19 5a9 9 0 0 0-14 8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>🔁 Capítulo 7 – Como Integrar Práticas</h3>
+						<p>🗓️ Construa hábitos positivos, mantenha consistência emocional e floresça de dentro para fora.</p>
+					</div>
+				</div>
+				<!-- Card 8 -->
+				<div class="swiper-slide card" data-chapter="c8">
+					<div class="card-icon">
+						<!-- Ícone 8 -->
+						<svg viewBox="0 0 24 24">
+							<path d="M9 12l2 2 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<circle cx="12" cy="12" r="10" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+						</svg>
+					</div>
+					<div class="card-content">
+						<h3>🧩 Considerações Finais</h3>
+						<p>✨ Conclua sua jornada agora, abrace mudanças profundas e renove seu bem-estar.</p>
+					</div>
+				</div>
+			</div>
+			<!-- Paginação e Navegação do Swiper -->
+			<div class="swiper-pagination" aria-label="Navegação"></div>
+			<div class="swiper-button-next" aria-label="Próximo"></div>
+			<div class="swiper-button-prev" aria-label="Anterior"></div>
+		</div>
+	</main>
+	<!-- MODAL: Exibe conteúdo completo do capítulo selecionado -->
+	<div id="modal" class="modal" role="dialog" aria-modal="true">
+		<div class="modal-content">
+			<span class="modal-close" aria-label="Fechar">&times;</span>
+			<div id="modal-body"></div>
+		</div>
+	</div>
+	<!-- TEXTOS COMPLETOS – CONTEÚDO DE CADA CAPÍTULO -->
+	<!-- Conteúdo para Card: Introdução -->
+	<div id="chapter-intro" style="display: none;">
+		<article>
+			<p>✨ Introdução</p>
+			<p>Olá,<br />Seja muito bem-vindo(a).</p>
+			<p> Meu nome é Richelmy Murta, sou psicólogo clínico, e tenho dedicado minha jornada profissional a ajudar pessoas a reconstruírem a forma como se relacionam consigo mesmas — especialmente nos momentos em que tudo dentro parece pesar. </p>
+			<p> Talvez você esteja aqui porque sua mente tem sido dura demais com você. Talvez a culpa, a autocrítica, a cobrança constante ou o cansaço emocional tenham feito barulho demais nos últimos tempos. Se for o caso, quero te dizer algo desde já: você não está sozinho(a), e não há nada de errado com você por estar assim. </p>
+			<p> Este guia foi criado como um lugar de pausa, um abrigo emocional em forma de palavras. Um espaço onde você pode respirar, se acolher, e descobrir novas formas de se tratar com mais compaixão — mesmo quando a mente estiver gritando o contrário. </p>
+			<p> Tudo o que você encontrará aqui é fruto de um olhar cuidadoso e comprometido com a ciência, especialmente com os fundamentos da Terapia Cognitivo-Comportamental (TCC) e das abordagens baseadas em autocompaixão e regulação emocional. </p>
+			<p>Mas este não é um material teórico. Ele foi feito para ser vivido.</p>
+			<p> Aqui, você vai encontrar práticas breves, diretas e transformadoras. Ferramentas que cabem no bolso, no meio do dia, no meio do caos. Palavras que não prometem mágica — mas oferecem clareza e gentileza nos dias mais difíceis. </p>
+			<p> Meu convite é simples: permita-se experimentar. Não há um jeito certo de usar este guia. Você pode seguir na ordem que quiser, voltar quando precisar, adaptar conforme sentir. O que importa é lembrar que, mesmo em meio ao sofrimento, você ainda pode agir com respeito por si mesmo(a). </p>
+			<p>Vamos juntos?</p>
+			<p>Richelmy Murta</p>
+		</article>
+	</div>
+	<!-- Conteúdo para Card: Como Usar Este Guia -->
+	<div id="chapter-como" style="display: none;">
+		<article>
+			<p>🧭 Como Usar Este Guia</p>
+			<p> Este não é um manual com regras rígidas. É um guia de apoio, e, como todo apoio verdadeiro, ele existe para estar ao seu lado — não para exigir nada de você. </p>
+			<p> Você não precisa ler tudo de uma vez, nem seguir uma ordem específica. Cada capítulo foi pensado como uma pequena ilha de cuidado, que você pode visitar conforme sentir necessidade. </p>
+			<p>Algumas sugestões para tirar o melhor proveito deste material:</p>
+			<ul>
+				<li>🔹 Siga sua intuição emocional.</li>
+				<li>🔹 Vá com calma.</li>
+				<li>🔹 Volte sempre que precisar.</li>
+				<li>🔹 Adapte como quiser.</li>
+			</ul>
+			<p> ✨ Lembre-se: gentileza emocional não é luxo, é sobrevivência.<br /> E você merece isso — especialmente quando mais precisar. </p>
+		</article>
+	</div>
+	<!-- Conteúdo para Card: Capítulo 1 -->
+	<div id="chapter-c1" style="display: none;">
+		<article>
+			<p>📖 Capítulo 1 – A Mente Cruel: Compreendendo os Três Sistemas Emocionais</p>
+			<p> “Sua mente, quando em modo de ameaça, pode ser transformada através do equilíbrio entre o instinto de proteção, a busca por recursos e o acolhimento interno.” </p>
+			<p> Neste capítulo, você descobrirá como três sistemas emocionais fundamentais — o Sistema de Ameaça e Autoproteção, o Sistema de Busca e Recursos e o Sistema de Acolhimento e Cuidado — governam nossas reações. Estudos em neurociência revelam que o <strong>Sistema de Ameaça</strong> dispara respostas automáticas como ansiedade, tensão muscular e pensamentos autocríticos quando nos sentimos em perigo. Esses sinais, muitas vezes, se manifestam através de um aumento na frequência cardíaca e respostas de “luta ou fuga”. </p>
+			<p> Em contraste, o <strong>Sistema de Busca e Recursos</strong> nos impulsiona a alcançar metas e conquistas. Embora seja vital para a motivação, quando esse sistema opera em excesso, ele pode gerar um ciclo de autoexigência e frustração, especialmente quando os resultados não correspondem às expectativas. </p>
+			<p> Por fim, o <strong>Sistema de Acolhimento e Cuidado</strong> é responsável por promover sentimentos de calma, segurança e conexão interna. Este sistema, quando ativado, ajuda a neutralizar as respostas de ameaça e excesso de cobrança, permitindo que você experimente a autocompaixão. </p>
+			<p> Os exercícios propostos neste guia atuam justamente para estimular o Sistema de Acolhimento, ensinando técnicas de respiração, escrita terapêutica e autoempatia que ajudam a reequilibrar os demais sistemas. Esses métodos têm embasamento teórico sólido na neurociência, que demonstra que cultivar a compaixão interna pode reconfigurar as respostas neurais, promovendo resiliência e bem-estar emocional. </p>
+			<p> Imagine transformar a turbulência interna em uma fonte de calma e autoconhecimento. Ao aprender a identificar e modular esses sistemas, você abre espaço para uma nova forma de se relacionar consigo mesmo – uma relação baseada na gentileza, na compreensão e na verdadeira transformação. </p>
+		</article>
+	</div>
+	<!-- Conteúdo para Card: Capítulo 2 -->
+	<div id="chapter-c2" style="display: none;">
+		<article>
+			<p>🌬️ Capítulo 2 – Respirando com Gentileza: Redução da Autocrítica</p>
+			<p> “Quando o mundo interno estiver gritando, a respiração pode sussurrar de volta: calma, você está seguro.” </p>
+			<p> Talvez você já tenha sentido que sua mente parece uma sala cheia de vozes, todas falando ao mesmo tempo, apontando defeitos, exigindo resultados e revivendo erros. Este capítulo é um convite para voltar ao corpo, ao presente e à segurança interna através da respiração. Simples, acessível e profundamente eficaz, a respiração pode ser uma âncora nos momentos em que tudo parece desmoronar. </p>
+			<p> 🧠 Por que respirar ajuda?<br /> Nosso sistema nervoso opera entre dois polos: o de ameaça (ativado em situações de estresse e medo) e o de calma (que favorece segurança e autorregulação). Respirar conscientemente envia ao cérebro a mensagem de que “está tudo bem por agora”, reduzindo a atividade da amígdala e ativando o sistema parassimpático. </p>
+			<p> 🌬️ Exercício – Respiração de Redução da Autocrítica<br /> Quando praticar: quando a mente estiver agitada e cheia de julgamentos, ao perceber pensamentos de inadequação ou culpa, e quando o corpo estiver tenso.<br /> Como fazer: encontre um lugar calmo, feche os olhos, inspire contando até 4 e expire contando até 6 ou 8, repetindo frases de segurança por 3 a 5 minutos. </p>
+			<p> 🌱 Benefícios esperados: redução da tensão muscular e dos pensamentos autocríticos, aumento da sensação de segurança e abertura para o cuidado. </p>
+			<p> 💡 Dicas: use esse exercício ao acordar, antes de situações difíceis ou antes de dormir, tornando-o um ritual diário. </p>
+			<p> ✍️ Experiência pessoal: registre como se sentiu, o que relaxou e qual frase teve mais efeito. </p>
+			<p> 💬 Frase para guardar: “A calma não precisa vir da perfeição. Ela pode vir de um simples ato: respirar com respeito por mim mesmo(a).” </p>
+		</article>
+	</div>
+	<!-- Conteúdo para Card: Capítulo 3 -->
+	<div id="chapter-c3" style="display: none;">
+		<article>
+			<p>✍️ Capítulo 3 – Escrita Sem Punição: A Técnica da Autocompaixão Escrita</p>
+			<p>“Não é o erro que mais machuca. É o que fazemos com ele dentro da nossa cabeça.”</p>
+			<p> Todo ser humano erra, mas há uma diferença entre errar e se destruir emocionalmente. Este capítulo convida você a utilizar a escrita como caminho de reconexão, permitindo expressar sentimentos e aprender com os erros sem se punir. </p>
+			<p> 🧠 Por que escrever ajuda? A escrita terapêutica organiza pensamentos, nomeia emoções e reestrutura interpretações distorcidas, ajudando a acessar a autocompaixão. </p>
+			<p> ✍️ A Técnica da Autocompaixão Escrita:<br /> Quando praticar: após um erro, quando sentir culpa ou vergonha.<br /> Como fazer: responda, sem julgamentos, a quatro perguntas sobre o ocorrido; por exemplo, “Hoje, eu me senti mal porque…” e “Dessa situação, posso levar…”<br /> Exemplo: reconheça que um erro não define seu valor e aprenda a respirar e reagir de forma diferente. </p>
+			<p> 🎯 Objetivo: parar o ciclo da autocrítica e transformar culpa em aprendizado. </p>
+			<p> 🗒️ Dica prática: transforme a escrita em um hábito regular, reconhecendo e refletindo com carinho. </p>
+			<p> 💬 Frase para lembrar: “Eu posso errar sem me odiar. Posso aprender sem me punir. Posso crescer sem me abandonar.” </p>
+		</article>
+	</div>
+	<!-- Conteúdo para Card: Capítulo 4 -->
+	<div id="chapter-c4" style="display: none;">
+		<article>
+			<p>🪞 Capítulo 4 – O Olhar do Amigo: Empatia Aplicada a Si Mesmo</p>
+			<p>“A voz que você usa com quem ama pode ser a mesma que você aprende a usar consigo.”</p>
+			<p> Aprenda a redirecionar a empatia que oferecemos aos outros para cuidar de si mesmo. Este capítulo propõe exercícios que transformam a autocrítica em autocompaixão, encorajando você a tratar a si mesmo com a mesma ternura que dedicaria a um amigo querido. </p>
+			<p> 🧠 O que é empatia aplicada a si mesmo? É a capacidade de compreender a dor com humanidade e oferecer escuta e acolhimento, cultivando autocompaixão. </p>
+			<p> 🪞 O exercício: imagine seu melhor amigo no seu lugar e diga palavras de apoio e segurança para si mesmo. </p>
+			<p> 💡 Dica: repita esse exercício com frequência para criar uma voz interna mais gentil e equilibrada. </p>
+			<p> ✍️ Para refletir: pense sobre como você fala consigo e como pode ajustar essa voz para cuidar melhor de si. </p>
+			<p> 💬 Frase para lembrar: “A forma como falo comigo importa. Posso escolher uma voz que cuida — não que castiga.” </p>
+		</article>
+	</div>
+	<!-- Conteúdo para Card: Capítulo 5 -->
+	<div id="chapter-c5" style="display: none;">
+		<article>
+			<p>💭 Capítulo 5 – Nem Todo Pensamento é Verdade: A Arte de Reformular</p>
+			<p>“A mente pensa. Mas você pode escolher o que acreditar.”</p>
+			<p> Milhares de pensamentos atravessam nossa mente diariamente, muitos dos quais são cruéis e limitantes. Este capítulo o convida a questionar esses pensamentos e a reformulá-los com equilíbrio, permitindo que você escolha crenças que promovam bem-estar. </p>
+			<p> 🧠 O que é um pensamento automático? São interpretações que surgem sem controle, muitas vezes baseadas em experiências passadas. </p>
+			<p> 🧩 Como desconfiar deles? Pergunte: “Isso é 100% verdade?”, “Há evidências contrárias?” e “Como posso reformular isso com compaixão?” </p>
+			<p> 🧠 Exemplo prático: ao cometer um erro, substitua “Eu sou péssimo” por afirmações que reforcem seu valor e aprendizado. </p>
+			<p> 🌱 Benefícios: diminuição da autocrítica e abertura para respostas mais saudáveis. </p>
+			<p> ✍️ Exercício prático: escreva o pensamento, analise seu contexto e reformule-o. </p>
+			<p> 💬 Frase para lembrar: “Nem todo pensamento merece ser acreditado. E eu posso escolher os que cuidam de mim.” </p>
+		</article>
+	</div>
+	<!-- Conteúdo para Card: Capítulo 6 -->
+	<div id="chapter-c6" style="display: none;">
+		<article>
+			<p>🚨 Capítulo 6 – Roteiro de Emergência: Cuidando de Si em Crises</p>
+			<p>“Nos dias em que tudo pesa, você não precisa resolver nada. Só precisa lembrar: você ainda pode se cuidar.”</p>
+			<p> Este capítulo apresenta um passo a passo prático para enfrentar momentos de crise, quando a autocrítica e a tensão se intensificam. Aprenda a reconhecer os sinais e adotar medidas simples para recuperar a serenidade. </p>
+			<p> 📍 Quando usar: em situações de sobrecarga emocional e ansiedade. </p>
+			<p> 🔁 Roteiro: 1. Reconheça o que está acontecendo; 2. Respire profundamente; 3. Fale consigo com firmeza gentil; 4. Realize uma ação concreta de cuidado. </p>
+			<p> 🎯 Objetivo: sobreviver ao momento sem se destruir, mantendo a dignidade emocional. </p>
+			<p> ✍️ Experimente e registre suas sensações após aplicar o roteiro. </p>
+			<p> 💬 Frase para lembrar: “Nos dias difíceis, o autocuidado é meu ato de resistência. Eu posso ser meu próprio abrigo.” </p>
+		</article>
+	</div>
+	<!-- Conteúdo para Card: Capítulo 7 -->
+	<div id="chapter-c7" style="display: none;">
+		<article>
+			<p>🔁 Capítulo 7 – Como Integrar Essas Práticas no Dia a Dia</p>
+			<p>“Autocuidado não é algo que se faz só quando sobra tempo — é uma forma de viver com mais presença, respeito e gentileza por si mesmo.”</p>
+			<p> Este capítulo reúne estratégias para transformar as práticas aprendidas em hábitos cotidianos, integrando pequenos gestos que promovem bem-estar e equilíbrio emocional. </p>
+			<p> 🌿 Sugestões: use lembretes visuais, alarmes compassivos, práticas matinais e compartilhe com pessoas de confiança. </p>
+			<p> ✍️ Experimente criar um ritual semanal que ajude a consolidar essas práticas. </p>
+			<p> 💬 Frase para lembrar: “Autocuidado não é algo que eu busco quando estou bem. É o que eu cultivo para me manter de pé — mesmo nos dias difíceis.” </p>
+		</article>
+	</div>
+	<!-- Conteúdo para Card: Capítulo 8 -->
+	<div id="chapter-c8" style="display: none;">
+		<article>
+			<p>🧩 Considerações Finais – Uma nova forma de estar com você</p>
+			<p> Você chegou ao fim deste guia e, ao fazê-lo, se ofereceu o presente da transformação. Reconheça sua coragem e celebre as mudanças que está iniciando. </p>
+			<p> 👣 Próximos Passos: transforme uma prática em hábito, releia o conteúdo sempre que precisar e compartilhe este material com quem busca apoio. </p>
+			<p> 👤 Sobre o Autor:<br /> Richelmy Murta<br /> Psicólogo Clínico (CRP/MG)<br /> Especialista em Terapia Cognitivo-Comportamental </p>
+			<p> Atuo para fortalecer a saúde emocional e promover relacionamentos mais compassivos. Estou disponível para acompanhamento e orientação. </p>
+			<p> 📩 Se você gostou deste material: compartilhe, me escreva sobre seu impacto e fique por perto para novos conteúdos. </p>
+			<p> 💬 Frase para levar: “Mesmo nos dias difíceis, posso escolher agir com respeito por mim. E isso… já é um começo.” </p>
+		</article>
+	</div>
+	<!-- SEÇÃO DE CONTATO -->
+	<section id="contact">
+		<h2>Gostaria de compartilhar algo? Envie sua mensagem e responderei com carinho.</h2>
+		<form id="contactForm">
+			<textarea id="contactText" placeholder="Escreva sua mensagem aqui..." required aria-label="Mensagem"></textarea>
+			<button type="submit">Enviar Mensagem</button>
+		</form>
+	</section>
+	<!-- RODAPÉ -->
+	<footer>
+		<div class="footer-line">Richelmy Murta, Psicólogo Clínico</div>
+		<div class="footer-line">Especialista em Terapia Cognitivo-Comportamental</div>
+		<div class="footer-line">2025 - Todos os direitos reservados</div>
+	</footer>
+	<!-- BOTÃO FLOUTANTE DE WHATSAPP -->
+	<div id="whatsappFloat">
+		<svg viewBox="0 0 32 32">
+			<path d="M16.003 3.007c-7.156 0-12.993 5.837-12.993 12.992 0 2.299.617 4.557 1.791 6.531l-1.906 6.96 7.125-1.857c1.867 1.023 3.994 1.566 6.064 1.566h.01c7.155 0 12.992-5.837 12.992-12.992 0-3.461-1.349-6.72-3.8-9.17-2.451-2.449-5.709-3.77-9.169-3.77zm7.49 18.41c-.247.69-1.455 1.346-2.009 1.417-.516.061-1.174.086-1.893-.12-.438-.14-1.004-.323-1.73-.627-3.046-1.32-5.035-4.59-5.19-4.82-.156-.23-1.235-1.645-1.235-3.143 0-1.499.78-2.232 1.055-2.532.274-.3.6-.375.8-.375.2 0 .4.002.57.01.184.008.43-.07.67.52.247.6.837 2.076.91 2.23.074.153.124.33.024.53-.1.2-.15.32-.3.49-.15.16-.3.37-.45.55-.15.18-.31.37-.14.65.17.28.76 1.24 1.63 2.02 1.12 1 2.06 1.31 2.34 1.45.28.14.44.12.6-.07.16-.19.69-.79.87-1.06.18-.28.36-.23.6-.14.24.09 1.52.72 1.78.85.26.13.43.2.49.31.06.11.06.64-.18 1.33z"></path>
+		</svg>
+	</div>
+	<!-- SCRIPTS -->
+	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+	<script>
+		// Inicializa o Swiper (efeito coverflow)
+		const swiper = new Swiper(".swiper-container", {
+		  effect: "coverflow",
+		  grabCursor: true,
+		  centeredSlides: true,
+		  slidesPerView: "auto",
+		  coverflowEffect: {
+		    rotate: 30,
+		    stretch: 0,
+		    depth: 100,
+		    modifier: 1,
+		    slideShadows: true,
+		  },
+		  pagination: {
+		    el: ".swiper-pagination",
+		    clickable: true,
+		  },
+		  navigation: {
+		    nextEl: ".swiper-button-next",
+		    prevEl: ".swiper-button-prev",
+		  },
+		});
+		
+		// MODAL: Ao clicar em cada card, carrega o conteúdo do capítulo correspondente
+		const modal = document.getElementById("modal");
+		const modalBody = document.getElementById("modal-body");
+		const modalClose = document.querySelector(".modal-close");
+		
+		document.querySelectorAll(".card").forEach((card) => {
+		  card.addEventListener("click", () => {
+		    const chapterKey = card.getAttribute("data-chapter");
+		    const content = document.getElementById("chapter-" + chapterKey);
+		    if (content) {
+		      modalBody.innerHTML = content.innerHTML;
+		      modal.style.display = "block";
+		    }
+		  });
+		});
+		
+		modalClose.addEventListener("click", () => {
+		  modal.style.display = "none";
+		});
+		window.addEventListener("click", (e) => {
+		  if (e.target === modal) {
+		    modal.style.display = "none";
+		  }
+		});
+		
+		// Formulário de Contato: Envio de mensagem para WhatsApp
+		const contactForm = document.getElementById("contactForm");
+		contactForm.addEventListener("submit", (e) => {
+		  e.preventDefault();
+		  const text = document.getElementById("contactText").value.trim();
+		  if (text !== "") {
+		    const whatsappNumber = "5535984640729";
+		    const message = encodeURIComponent(`Mensagem do Landing: ${text}`);
+		    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+		  }
+		});
+		
+		// Botão Flutuante de WhatsApp para compartilhar o link da página
+		const whatsappFloat = document.getElementById("whatsappFloat");
+		whatsappFloat.addEventListener("click", () => {
+		  const shareUrl = encodeURIComponent(
+		    "Confira este guia de transformação emocional: [URL do Site]"
+		  );
+		  window.open(`https://wa.me/?text=${shareUrl}`, "_blank");
+		});
+	</script>
+</body>
+
+</html>
